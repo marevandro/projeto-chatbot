@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourBot</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="static/imgs/icon-guia.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="navbar-container">
+        <div class="logo-container">
+            <img src="static/imgs/icon.jpg" alt="icon" class="logo">
+        </div>
+    </header>
+    <main class="main-container">
+        <div class="content-main">
+            <div class="image-container">
+                <img src="static/imgs/fundo.jpg" alt="img-main" class="logo">
+            </div>
+            <p><span>Bem-vindo</span>Pergunte ao Rick!</p>
+        </div>
+        <div class="chat-container"></div>
+
+        <div class="input-container">
+            <input type="text" placeholder="Envie seus arquivos para começar!" id="input">
+            <div id="fileNameDisplay"></div>
+
+            <input type="file" id="pdfInput" accept=".pdf">
+
+
+            <button id="sendButton">
+                <img src="static/icons/sendIcon.svg" alt="enviar texto" id="sendText">
+            </button>
+        </div>
+    </main>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
