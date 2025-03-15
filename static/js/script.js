@@ -15,10 +15,7 @@ function initChat() {
         if (messageText === "") return;
     
         createMessageBubble(messageText, "mensagens-usuario");
-    
-        setTimeout(() => {
-            createMessageBubble("Eu sou um bot! Como posso ajudar?", "mensagens-bot");
-        }, 1000);
+        postResquestOpenAi(messageText);
     
         input.value = "";
         mainContainer.classList.add("validat-mensagem")
@@ -31,8 +28,25 @@ function initChat() {
         chatContainer.appendChild(messageBubble);
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
+
+    const instance = axios.create({
+        baseURL: "http://marevandro-backend-chat.dokku.maratonahacker.net.br",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      async function postResquestOpenAi(message) {
+        try {
+            const {data} = await instance.post("/add", { user_message: message });
+            createMessageBubble(data.response, "mensagens-bot");
+            console.log(data, "cahamada api")
+            return 
+        } catch (error) {
+            console.error("Erro ao retornar resposta da API:", error);
+        }
+      }
+
 }
 
-window.addEventListener("load", () => {
+window.onload = () => {
     initChat();
-});
+};
